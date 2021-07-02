@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  ssb-server:
+    image: ssb-server:latest
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8008:8008"
+      - "8989:8989"
+    volumes:
+      - /home/wolfgang/.ssb:/home/node/.ssb
