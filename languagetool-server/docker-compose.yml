@@ -1,0 +1,7 @@
+version: "3"
+services:
+  languagetool:
+    image: languagetool:latest
+    build: .
+    ports:
+      - 18081:8081
