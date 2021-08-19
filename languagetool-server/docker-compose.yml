@@ -4,4 +4,4 @@ services:
     image: languagetool:latest
     build: .
     ports:
-      - 18081:8081
+      - 18081:18081
