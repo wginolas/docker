@@ -9,7 +9,12 @@ description: |
   store.
 
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  hyp:
+    command: bin/hyp
+    plugs: [network, network-bind, home]
 
 parts:
   hyp:
@@ -17,3 +22,10 @@ parts:
     plugin: nodejs
     nodejs-version: "14.17.5"
     source: https://github.com/hypercore-protocol/cli.git
+    source-tag: v2.0.0
+
+#  hyperdrive:
+#    plugin: nodejs
+#    nodejs-version: "14.17.5"
+#    source: https://github.com/hypercore-protocol/hyperdrive.git
+#    source-tag: v10.21.0
