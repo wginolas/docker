@@ -27,5 +27,5 @@ USER user
 COPY --from=build /app/LanguageTool /app/LanguageTool
 COPY --from=build /app/de /app/de
 WORKDIR /app/LanguageTool
-CMD java -Xms256m -Xmx512m -cp languagetool-server.jar org.languagetool.server.HTTPServer --allow-origin '*' --languageModel /app/de --port 18081 --public
+CMD java -Xms256m -Xmx512m -cp languagetool-server.jar org.languagetool.server.HTTPServer --allow-origin '*' --languageModel /app --port 18081 --public
 #CMD java -jar languagetool-server.jar
