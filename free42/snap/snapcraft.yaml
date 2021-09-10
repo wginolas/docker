@@ -17,7 +17,7 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   free42:
-    command: $SNAP/free42dec
+    command: free42dec
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio"
     plugs: [unity7, home, pulseaudio]
@@ -40,6 +40,7 @@ parts:
       - libgtk-3-dev
       - libasound2-dev
     stage-packages:
+      # Dependencies detected by snapcraft
       - libatk-bridge2.0-0
       - libatk1.0-0
       - libatspi2.0-0
@@ -78,3 +79,5 @@ parts:
       - libxkbcommon0
       - libxrandr2
       - libxrender1
+      # Not detected by snapcraft
+      - libxpm4
