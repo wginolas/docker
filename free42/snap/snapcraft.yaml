@@ -17,10 +17,10 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   free42:
-    command: desktop-launch $SNAP/free42
+    command: $SNAP/free42dec
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio"
-    plugs: [home, pulseaudio, desktop, desktop-legacy]
+    plugs: [unity7, home, pulseaudio]
 
 parts:
   free42:
@@ -31,7 +31,50 @@ parts:
     override-build: |
       ./build-gtk
       ls packages
-      #cp src/dosbox-x $SNAPCRAFT_PART_INSTALL
+      tar xvfz packages/*.tgz
+      # -C $SNAPCRAFT_PART_INSTALL
+      ls Free42Linux
+      cp Free42Linux/* $SNAPCRAFT_PART_INSTALL
+      ls $SNAPCRAFT_PART_INSTALL
     build-packages:
       - libgtk-3-dev
       - libasound2-dev
+    stage-packages:
+      - libatk-bridge2.0-0
+      - libatk1.0-0
+      - libatspi2.0-0
+      - libcairo-gobject2
+      - libcairo2
+      - libdatrie1
+      - libepoxy0
+      - libfontconfig1
+      - libfreetype6
+      - libgdk-pixbuf2.0-0
+      - libgraphite2-3
+      - libgtk-3-0
+      - libharfbuzz0b
+      - libpango-1.0-0
+      - libpangocairo-1.0-0
+      - libpangoft2-1.0-0
+      - libpixman-1-0
+      - libpng16-16
+      - libthai0
+      - libwayland-client0
+      - libwayland-cursor0
+      - libwayland-egl1
+      - libx11-6
+      - libxau6
+      - libxcb-render0
+      - libxcb-shm0
+      - libxcb1
+      - libxcomposite1
+      - libxcursor1
+      - libxdamage1
+      - libxdmcp6
+      - libxext6
+      - libxfixes3
+      - libxi6
+      - libxinerama1
+      - libxkbcommon0
+      - libxrandr2
+      - libxrender1
