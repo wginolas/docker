@@ -1,0 +1,8 @@
+version: "3"
+services:
+  ssb-room:
+    image: staltz/ssb-room:latest
+    ports:
+      - 8007:8007
+      - 8008:8008
+      - 8009:8009
