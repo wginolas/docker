@@ -18,9 +18,9 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 apps:
   free42:
     command: free42dec
-    environment:
-      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio"
-    plugs: [unity7, home, pulseaudio]
+    extensions: [gnome-3-28]
+    #plugs: [unity7, home, pulseaudio]
+    plugs: [home]
 
 parts:
   free42:

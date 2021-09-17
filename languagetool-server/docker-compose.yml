@@ -3,5 +3,6 @@ services:
   languagetool:
     image: languagetool:latest
     build: .
+    restart: always
     ports:
       - 18081:18081
