@@ -1,0 +1,12 @@
+version: "3"
+services:
+  proxy_for_docker:
+    image: proxy_for_docker:latest
+    build: .
+    restart: always
+    ports:
+      - 3128:3128
+    volumes:
+      - cache:/var/spool/squid
+volumes:
+  cache:
