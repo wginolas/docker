@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  magneticod:
+    image: boramalper/magneticod:latest
+    volumes:
+      - magneticod_data:/root/.local/share/magneticod
+      - magneticod_config:/root/.config/magneticod
+    network_mode: "host"
+    command:
+      - "--indexer-addr=0.0.0.0:1212"
+
+  magneticow:
+    image: boramalper/magneticow:latest
+    volumes:
+      - magneticod_data:/root/.local/share/magneticod
+      - ./magneticow_config/:/root/.config/magneticow
+    ports:
+      - "8080:8080"
+
+volumes:
+  magneticod_data:
+  magneticod_config:
