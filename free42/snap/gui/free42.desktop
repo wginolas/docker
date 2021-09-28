@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Free42
+Comment=Free42
+Icon=${SNAP}/meta/gui/free42.png
+Exec=free42
+Terminal=false
+Categories=Development;IDE;
