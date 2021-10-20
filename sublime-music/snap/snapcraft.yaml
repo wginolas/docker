@@ -1,0 +1,35 @@
+name: sublime-music
+base: core20
+version: "0.11.13"
+summary: Sublime Music is a native, GTK3 Subsonic client for the Linux Desktop.
+description: Sublime Music is a native, GTK3 Subsonic/Airsonic/Revel/Gonic/Navidrome/Ampache/*sonic client for the Linux Desktop.
+
+architectures:
+  - build-on: amd64
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict
+
+apps:
+  sublime-music:
+    command: sublime-music
+    extensions: [gnome-3-38]
+    plugs: [home]
+
+parts:
+  sublime-music:
+    # See 'snapcraft plugins'
+    plugin: python
+    build-environment:
+      - PATH: /snap/gnome-3-38-2004-sdk/112/usr/bin:$PATH
+      - PYTHONPATH: ''
+    python-packages:
+      - sublime-music==0.11.13
+    #override-build: |
+    #  touch $SNAPCRAFT_PART_INSTALL/dummy
+    #  chmod a+x $SNAPCRAFT_PART_INSTALL/dummy
+    #  snapcraftctl build
+
+    build-packages:
+      - libgirepository1.0-dev
+      - python3-pip
