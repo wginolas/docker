@@ -1,0 +1,26 @@
+name: elm
+base: core18
+version: "0.19.1"
+summary: The elm compiler
+description: |
+  The elm compiler
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  elm:
+    command: elm
+    plugs: [home]
+
+parts:
+  elm:
+    # See 'snapcraft plugins'
+    plugin: nil
+    override-build: |
+      curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+      gunzip elm.gz
+      chmod +x elm
+      cp elm $SNAPCRAFT_PART_INSTALL
+    build-packages:
+      - curl
