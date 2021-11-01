@@ -1,0 +1,32 @@
+name: tiddlydesktop
+base: core18
+version: "0.0.14"
+summary: TiddlyDesktop
+description: |
+  TiddlyDesktop
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict
+
+apps:
+  tiddlydesktop:
+    command: nw
+    extensions: [gnome-3-28]
+    plugs: [home]
+
+parts:
+  tiddlydesktop:
+    plugin: nil
+    override-build: |
+      curl -L -o tiddlydesktop.zip https://github.com/Jermolene/TiddlyDesktop/releases/download/v0.0.14/tiddlydesktop-linux64-v0.0.14.zip
+      unzip tiddlydesktop.zip
+      cd TiddlyDesktop-linux64*
+      cp -rv * $SNAPCRAFT_PART_INSTALL
+    build-packages:
+      - curl
+      - unzip
+    stage-packages:
+      - libatomic1
+      - libxss1
+      - libnspr4
+      - libnss3

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=TiddlyDesktop
+Comment=TiddlyDesktop is a special purpose web browser for working with locally stored TiddlyWikis.
+Icon=${SNAP}/meta/gui/tiddlydesktop.png
+Exec=tiddlydesktop
+Terminal=false
+Categories=Office;Utility;
