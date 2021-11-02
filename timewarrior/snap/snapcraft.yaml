@@ -1,0 +1,21 @@
+name: timew
+base: core18
+version: "1.4.3"
+summary: Timewarrior is Open Source Software that tracks time from the command line.
+description: |
+  Timewarrior is Free and Open Source Software that tracks time from the command line.
+  https://timewarrior.net/
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict
+
+apps:
+  timew:
+    command: timew
+    # plugs: [home] TODO something needed here?
+
+parts:
+  timew:
+    plugin: cmake
+    source: https://github.com/GothenburgBitFactory/timewarrior.git
+    source-tag: v1.4.3
