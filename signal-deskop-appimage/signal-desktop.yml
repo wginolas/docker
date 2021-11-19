@@ -1,0 +1,10 @@
+app: signal-desktop
+ingredients:
+  dist: xenial
+  sources:
+    - deb http://archive.ubuntu.com/ubuntu/ xenial main universe
+    - deb https://updates.signal.org/desktop/apt xenial main
+  packages:
+    - signal-desktop
+script:
+  - ln -s ../../opt/Signal/signal-desktop usr/bin
