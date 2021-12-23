@@ -1,0 +1,7 @@
+app: emacs
+ingredients:
+  dist: bullseye
+  sources:
+    - deb http://deb.debian.org/debian/ bullseye main contrib non-free
+  packages:
+    - emacs
