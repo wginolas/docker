@@ -1,0 +1,34 @@
+name: firefox59
+base: core18
+version: "59.0"
+summary: Firefox 59.0
+description: |
+  Firefox 59.0
+
+architectures:
+  - build-on: amd64
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  firefox59:
+    command: firefox -no-remote
+    extensions: [gnome-3-28]
+    plugs: [home]
+
+parts:
+  firefox59:
+    plugin: nil
+    override-build: |
+      wget https://ftp.mozilla.org/pub/firefox/releases/59.0/linux-x86_64/en-US/firefox-59.0.tar.bz2
+      ls
+      tar xvfj firefox-*.tar.bz2
+      mv firefox/* $SNAPCRAFT_PART_INSTALL
+    build-packages:
+      - wget
+    stage-packages:
+      - libdbus-glib-1-2
+      - libxt6
+      - libgdk-pixbuf2.0-0
+      - libgtk2.0-0
