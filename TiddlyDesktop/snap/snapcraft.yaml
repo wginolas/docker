@@ -1,6 +1,6 @@
 name: tiddlydesktop
 base: core18
-version: "0.0.14"
+version: "0.0.15"
 summary: TiddlyDesktop
 description: |
   TiddlyDesktop
@@ -18,10 +18,12 @@ parts:
   tiddlydesktop:
     plugin: nil
     override-build: |
-      curl -L -o tiddlydesktop.zip https://github.com/Jermolene/TiddlyDesktop/releases/download/v0.0.14/tiddlydesktop-linux64-v0.0.14.zip
+      curl -L -o tiddlydesktop.zip https://github.com/Jermolene/TiddlyDesktop/releases/download/v0.0.15/tiddlydesktop-linux64-v0.0.15.zip
       unzip tiddlydesktop.zip
       cd TiddlyDesktop-linux64*
       cp -rv * $SNAPCRAFT_PART_INSTALL
+      chmod a+rx -R $SNAPCRAFT_PART_INSTALL/
+      chmod a+rx $SNAPCRAFT_PART_INSTALL/nw
     build-packages:
       - curl
       - unzip
