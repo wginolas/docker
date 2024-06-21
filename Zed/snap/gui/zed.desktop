@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Zed
+Comment=Code at the speed of thought
+Icon=${SNAP}/meta/gui/zed.png
+Exec=zed
+Terminal=false
+Categories=Development;IDE;
